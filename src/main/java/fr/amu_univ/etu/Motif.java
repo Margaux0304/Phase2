@@ -14,7 +14,7 @@ public class Motif {
     public Motif(String ligne){
         String[] result = ligne.split("\\(");
         support = Integer.valueOf(result[1].substring(0, result[1].length()-1));
-        items = Arrays.stream(result[0].split(" ")).map(Integer::valueOf).collect(Collectors.toSet());
+        items = Arrays.stream(result[0].split(" ")).filter(s -> !s.isEmpty()).map(Integer::valueOf).collect(Collectors.toSet());
     }
 
     public Motif() {
